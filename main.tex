@@ -82,10 +82,6 @@
 % have to be run twice to clear warning/error messages.
 
 
-
-
-
-
 % *** CITATION PACKAGES ***
 %
 %\usepackage{cite}
@@ -103,10 +99,6 @@
 % The latest version can be obtained at:
 % http://www.ctan.org/pkg/cite
 % The documentation is contained in the cite.sty file itself.
-
-
-
-
 
 
 % *** GRAPHICS RELATED PACKAGES ***
@@ -150,9 +142,6 @@
 % http://www.tug.org/applications/pdftex
 
 
-
-
-
 % *** MATH PACKAGES ***
 %
 %\usepackage{amsmath}
@@ -166,9 +155,6 @@
 % does. amsmath.sty is already installed on most LaTeX systems. The latest
 % version and documentation can be obtained at:
 % http://www.ctan.org/pkg/amsmath
-
-
-
 
 
 % *** SPECIALIZED LIST PACKAGES ***
@@ -357,7 +343,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Bare Demo of IEEEtran.cls\\ for IEEE Journals}
+\title{Implementation of neural networks to describe the stress response of soft materials in a series-elastic actuator model.}
 %
 %
 % author names and IEEE memberships
@@ -369,14 +355,14 @@
 % was not built to handle multiple paragraphs
 %
 
-\author{Michael~Shell,~\IEEEmembership{Member,~IEEE,}
-        John~Doe,~\IEEEmembership{Fellow,~OSA,}
-        and~Jane~Doe,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
-\thanks{M. Shell was with the Department
-of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
-GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
-\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
-\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
+\author{Rodrigo D. Solis-Ortega$^{1}$, Abbas A. Dehghani-Sanij$^{1}$ and Uriel Martinez-Hernandez$^{2}$% <-this % stops a space
+
+\thanks{*This work was supported by the Mexican National Council of Science and Technology (CONACyT) and is part of the project ‘Wearable soft robotics for independent living’ (EP/M026388/1). The authors are with the:}% <-this % stops a space
+\thanks{$^{1}$Institute of Robotics, Design and Optimization (iDRO), School of Mechanical Engineering, University of Leeds, Leeds, LS2 9JT, U.K.
+        {\tt\small \{el14rdso, a.a.dehghani-sanij\}$@$leeds.ac.uk}}%
+\thanks{$^{2}$Department of Electronic and Electrical Engineering, University of Bath, BA2 7AY, Bath, UK.
+        {\tt\small u.martinez$@$bath.ac.uk}}%
+}
 
 % note the % following the last \IEEEmembership and also \thanks - 
 % these prevent an unwanted space from occurring between the last author name
@@ -432,7 +418,8 @@ GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this %
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-The abstract goes here.
+One of the main challenges of soft robotics is modelling the complex non-linear mechanical behaviour of soft materials. Most of the solutions are based on the Linear Viscoelastic Models which are very computationally costly. In this work, we investigate the performance of feed-forward neural networks as an alternative approach to predict the tensile strength behaviour of seven different rubber-based elastomers. Two neural networks configuration are proposed depending on their inputs. The rate-dependent configuration has the material displacement and the displacement rate as inputs. The rate-independent configuration has the material current and past displacement as inputs. The impact on the network performance due to the selected number of neurons and hidden layers was investigated. For this application, one hidden layer sufficed. The number of neurons varied from X to Y, depending on the material. The rate-dependent configuration was the most accurate for predicting the material stress response for the all the displacement rates included in the training set, whereas the rate-independent configuration performed well only for one of the three displacement rates. Both neural networks were included into a series-elastic actuator model in Simulink. Here, the rate-dependent configuration was unstable, showing abrupt changes in its output when the displacement rate crossed certain boundaries. On contrast, force and position control was possible for the rate-independent configuration. Summarizing, the development of a feed-forward neural network for predicting the stress response of several soft material; and the safely implementation of this neural network into a control system, is presented in this work.
+
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -588,7 +575,19 @@ Subsubsection text here.
 % footnotes above bottom floats. This can be corrected via the
 % \fnbelowfloat command of the stfloats package.
 
-
+\section{Methodology}
+The methodology must explain the following:
+\begin{itemize}
+    \item Introduction - Referencing to the previously published work for detailed information about the performed mechanical tests. Here, mentioning of the new implemented soft materials can be made if it has not been made in the introduction.
+    \item Description of data acquisition and pre-processing algorithm used. In here, the explanation of how the data was smoothed is briefly explained.
+    \item Description of the mathematical model and the linearization technique implemented. Reference to the key parameters used in the previous paper goes here
+    \item Explanation of the PL method being accurate enough when being implemented in the SLS model, therefore the Wichert model is not required and this paper focus is he SLS model
+    \item KEY points not mentioned in the previous paper which account as an improvement of the PL model:
+    \begin{itemize}
+        \item Optimized linear time collocation for the SLS model. The time collocation technique was mentioned in the previous paper, applied in a logarithmic manner, as a way to obtain the best fit of the Wiechert model on the stress relaxation curve.
+        
+    \end{itemize}
+\end{itemize}
 
 
 \section{Conclusion}
